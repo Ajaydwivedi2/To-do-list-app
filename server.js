@@ -147,7 +147,7 @@ async function main() {
         console.log(err);
       });
     } else {
-      List.findOneAndUpdate({ name: listName }, { $pull: { items: { _id: checkedItem } } }).then(function () {
+      List.findOneAndUpdate({ name: listName }, { $pull: { items: { _id: checkedItem}}}).then(function () {
         res.redirect('/' + listName);
       })
         .catch(function (err) {
@@ -160,7 +160,7 @@ async function main() {
     res.render("about");
   });
 }
-app.listen(process.env.PORT||3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port 3000");
 });
 
