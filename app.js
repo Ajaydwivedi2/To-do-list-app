@@ -11,6 +11,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+const port = process.env.PORT || 3000;
+
 main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect(process.env.MONGO_URI);
@@ -161,7 +163,7 @@ async function main() {
     res.render("about");
   });
 }
-app.listen(process.env.PORT || 3000, function () {
+app.listen(port, function () {
   console.log("Server is running");
 });
 
