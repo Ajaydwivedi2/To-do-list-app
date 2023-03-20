@@ -15,7 +15,8 @@ const port = process.env.PORT || 3000;
 
 main().catch(err => console.log(err));
 async function main() {
-  await mongoose.connect(process.env.MONGO_URI);
+  // await mongoose.connect(process.env.MONGO_URI);
+ 
  
   // Define schema
   const itemsSchema = {
@@ -162,9 +163,11 @@ async function main() {
   app.get("/about", function (req, res) {
     res.render("about");
   });
-app.listen(port, function () {
-  console.log("Server is running");
-});
+   await mongoose.connect(process.env.MONGO_URI).then(function(){
+    app.listen(port, function () {
+      console.log("Server is running");
+    });
+   }) 
 }
 
 
