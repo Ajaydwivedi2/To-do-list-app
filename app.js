@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const https = require("https");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -161,6 +162,6 @@ async function main() {
   });
 }
 app.listen(process.env.PORT || 3000, function () {
-  console.log("Server started on port 3000");
+  console.log("Server is running");
 });
 
