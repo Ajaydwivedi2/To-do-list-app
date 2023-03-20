@@ -162,8 +162,9 @@ async function main() {
   app.get("/about", function (req, res) {
     res.render("about");
   });
-}
 app.listen(port, function () {
   console.log("Server is running");
 });
+}
+
 
